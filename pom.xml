@@ -28,11 +28,11 @@
 				 <configuration>
 					<cloudHubDeployment>
 						<username>irinirani2</username>
+						<password>Welcome@123</password>
 						<environment>Sandbox</environment>
 						<workers>1</workers>
 						<workerType>Micro</workerType>
-						<applicationName>employee-service</applicationName>
-						<password>Welcome@123</password>
+						<applicationName>employee-jenkins-deploy</applicationName>
 						<muleVersion>4.2.2</muleVersion>
 					</cloudHubDeployment>
 				</configuration>
