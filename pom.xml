@@ -30,6 +30,7 @@
 						<username>irinirani2</username>
 						<password>Welcome@123</password>
 						<environment>Sandbox</environment>
+						<objectStoreV2>true</objectStoreV2>
 						<workers>1</workers>
 						<workerType>Micro</workerType>
 						<applicationName>employee-jenkins-deploy</applicationName>
