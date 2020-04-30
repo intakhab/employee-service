@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
-	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="acea9230-4679-40a2-a348-0922525412b3" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="10b819f6-9aa0-4667-b2d9-310fe25576c5" >
+		<http:request-connection host="dummy.restapiexample.com" />
+	</http:request-config>
 	<flow name="employee-serviceFlow" doc:id="06d8d283-1560-4eb7-a563-b2dc9375e930" >
 		<http:listener doc:name="/Employee GET" doc:id="1ead379d-e730-4898-90b2-f45beaba240f" config-ref="HTTP_Listener_config" path="/employees"/>
+		<logger level="INFO" doc:name="Logger" doc:id="805510e0-aa90-4182-8837-422a098060ca" message="#[payload]"/>
+		<http:request method="GET" doc:name="Request" doc:id="1222ee47-a2e4-434f-91d7-ae2039621bbb" config-ref="HTTP_Request_configuration" path="/api/v1/employees"/>
+		<ee:transform doc:name="Transform Message" doc:id="b7ca3105-1b53-4efc-83f6-3e3fbcc0f198" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
 	</flow>
 </mule>
