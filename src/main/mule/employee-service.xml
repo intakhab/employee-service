@@ -18,9 +18,9 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 		<ee:transform doc:name="Transform Message" doc:id="b7ca3105-1b53-4efc-83f6-3e3fbcc0f198" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
-output application/json
+output application/xml
 ---
-payload]]></ee:set-payload>
+employees:payload]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
 	</flow>
