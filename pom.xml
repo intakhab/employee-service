@@ -28,7 +28,7 @@
 				 <configuration>
 					<cloudHubDeployment>
 						<username>irinirani2</username>
-						<enviroment>Sandbox</enviroment>
+						<environment>Sandbox</environment>
 						<worker>1</worker>
 						<workerType>Micro</workerType>
 						<applicationName>employee-service</applicationName>
