@@ -23,9 +23,9 @@
 				<extensions>true</extensions>
 				 <configuration>
 					<cloudHubDeployment>
-						<username>${mule.username}</username>
-						<password>${mule.password}</password>
-						<environment>${env}</environment>
+						<username>irinirani2</username>
+						<password>Welcome@123</password>
+						<environment>dev</environment>
 						<objectStoreV2>true</objectStoreV2>
 						<workers>1</workers>
 						<workerType>Micro</workerType>
